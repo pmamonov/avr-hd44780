@@ -3,21 +3,43 @@
 #include <avr/io.h>
 
 // Edit these
-#define LCD_DDR  DDRF
-#define LCD_PORT PORTF
+#define LCD_RS 5
+#define LCD_RS_PORT B
+#define LCD_RW 4
+#define LCD_RW_PORT B
+#define LCD_EN 3
+#define LCD_EN_PORT B
+#define LCD_D0 0
+#define LCD_D0_PORT C
+#define LCD_D1 1
+#define LCD_D1_PORT C
+#define LCD_D2 2
+#define LCD_D2_PORT C
+#define LCD_D3 3
+#define LCD_D3_PORT C
 
-#define LCD_RS 0
-#define LCD_RW 1
-#define LCD_EN 2
-#define LCD_D0 3
-#define LCD_D1 4
-#define LCD_D2 5
-#define LCD_D3 6
-
-#define LCD_COL_COUNT 16
+#define LCD_COL_COUNT 8
 #define LCD_ROW_COUNT 2
 
 // The rest should be left alone
+#define __cat1(A, B)	A ## B
+#define __cat(A, B)	__cat1(A, B)
+
+#define LCD_DDR_RS	__cat(DDR, LCD_RS_PORT)
+#define LCD_PORT_RS	__cat(PORT, LCD_RS_PORT)
+#define LCD_DDR_RW	__cat(DDR, LCD_RW_PORT)
+#define LCD_PORT_RW	__cat(PORT, LCD_RW_PORT)
+#define LCD_DDR_EN	__cat(DDR, LCD_EN_PORT)
+#define LCD_PORT_EN	__cat(PORT, LCD_EN_PORT)
+#define LCD_DDR_D0	__cat(DDR, LCD_D0_PORT)
+#define LCD_PORT_D0	__cat(PORT, LCD_D0_PORT)
+#define LCD_DDR_D1	__cat(DDR, LCD_D1_PORT)
+#define LCD_PORT_D1	__cat(PORT, LCD_D1_PORT)
+#define LCD_DDR_D2	__cat(DDR, LCD_D2_PORT)
+#define LCD_PORT_D2	__cat(PORT, LCD_D2_PORT)
+#define LCD_DDR_D3	__cat(DDR, LCD_D3_PORT)
+#define LCD_PORT_D3	__cat(PORT, LCD_D3_PORT)
+
 #define LCD_CLEARDISPLAY   0x01
 #define LCD_RETURNHOME     0x02
 #define LCD_ENTRYMODESET   0x04
