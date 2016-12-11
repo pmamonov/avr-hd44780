@@ -50,7 +50,9 @@ void lcd_write_nibble(uint8_t nibble) {
   	LCD_PORT_D3 &= ~(1 << LCD_D3);
 
   LCD_PORT_EN &= ~(1 << LCD_EN);
+  _delay_ms(0.1);
   LCD_PORT_EN |= (1 << LCD_EN);
+  _delay_ms(0.1);
   LCD_PORT_EN &= ~(1 << LCD_EN);
   _delay_ms(0.1);
 }
